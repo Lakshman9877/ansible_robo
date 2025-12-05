@@ -73,6 +73,9 @@
 
   - name: load catalogue data
     ansible.builtin.command: mongo --host 172.31.78.203 < /app/schema/catalogue.js
+    args:
+     chdir: /app
+    failed_when: false
 
   - name: restart catalogue
     ansible.builtin.service:
